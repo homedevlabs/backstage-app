@@ -36,6 +36,12 @@ data:
       github:
         - host: github.com
           token: ${GITHUB_TOKEN}
+          apps:
+            - appId: ${GITHUB_APP_ID}
+              privateKey: |
+                ${GITHUB_APP_PRIVATE_KEY}
+              clientId: ${AUTH_GITHUB_CLIENT_ID}
+              clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
 
     auth:
       environment: production
