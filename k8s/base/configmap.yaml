@@ -7,13 +7,14 @@ data:
   app-config.yaml: |
     app:
       title: Backstage
-      baseUrl: http://localhost:3000
+      baseUrl: https://backstage.superlab.app
 
     organization:
       name: My Company
 
     backend:
-      baseUrl: http://localhost:7007
+      baseUrl: https://backstage.superlab.app
+
       listen:
         port: 7007
       csp:

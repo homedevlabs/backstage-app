@@ -8,8 +8,9 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls: "true"
 spec:
   rules:
-    - host: backstage.example.com  # Substitua pelo seu domínio
+    - host: backstage.superlab.app
       http:
+
         paths:
           - path: /
             pathType: Prefix
@@ -18,3 +19,6 @@ spec:
                 name: backstage
                 port:
                   number: 80
+app:
+      title: Backstage
+      baseUrl: https://backstage.superlab.app
