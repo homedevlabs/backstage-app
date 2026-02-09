@@ -61,6 +61,7 @@ RUN groupadd -g 1001 backstage && \
 USER backstage
 
 EXPOSE 7007
+#ok
 
 CMD ["node", "packages/backend", "--config", "app-config.yaml"]
 
