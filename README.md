@@ -91,16 +91,13 @@ argocd app get backstage
 
 ```
 .
-├── k8s/
-│   ├── base/
-│   │   ├── namespace.yaml
-│   │   ├── serviceaccount.yaml
-│   │   ├── configmap.yaml
-│   │   ├── external-secrets.yaml
-│   │   ├── deployment.yaml
-│   │   ├── service.yaml
-│   │   └── ingress.yaml
-│   └── argocd-application.yaml
+├── k8s/              # Manifestos Kubernetes (Nativos)
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   ├── ingress.yaml
+│   ├── configmap.yaml
+│   ├── external-secrets.yaml
+│   └── serviceaccount.yaml
 ├── packages/
 │   ├── app/          # Frontend
 │   └── backend/      # Backend
@@ -121,15 +118,17 @@ O pipeline será composto por dois estágios principais:
 
 ---
 
-### 3. ArgoCD Configuration
+### 3. Deploy no Kubernetes
 
-No arquivo [argocd-application.yaml](file:///home/machine/repository/backstage-app/k8s/argocd-application.yaml), o repositório está configurado para:
-`https://github.com/homedevlabs/backstage-app.git`
+Os manifestos na pasta `k8s/` são nativos puros. Para aplicar manualmente:
+```bash
+kubectl apply -f k8s/
+```
 
 - [x] Fazer commit inicial <!-- id: 7 -->
 - [x] Criar repositório no GitHub (homedevlabs/backstage-app) <!-- id: 8 -->
 - [x] Push para GitHub <!-- id: 9 -->
-- [/] Criar pipeline CI/CD (GitHub Actions) <!-- id: 11 -->
+- [x] Pipeline CI/CD configurado <!-- id: 11 -->
 
 ## 🔧 Configuração
 
