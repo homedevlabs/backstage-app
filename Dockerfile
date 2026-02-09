@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Copy package files
 COPY package.json yarn.lock .yarnrc.yml ./
 COPY .yarn ./.yarn
+COPY packages/app/package.json packages/app/package.json
+COPY packages/backend/package.json packages/backend/package.json
 
 # Install dependencies
 RUN corepack enable && \
