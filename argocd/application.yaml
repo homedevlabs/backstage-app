@@ -7,9 +7,10 @@ spec:
   project: default
   
   source:
-    repoURL: https://github.com/neto007/backstage-app.git
+    repoURL: https://github.com/homedevlabs/backstage-app.git
     targetRevision: main
     path: k8s/base
+
 
     directory:
       recurse: true
