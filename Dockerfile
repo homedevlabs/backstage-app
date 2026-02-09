@@ -52,9 +52,10 @@ COPY --from=build /app/app-config.yaml /app/app-config.yaml
 
 
 # Create non-root user
-RUN groupadd -g 1000 backstage && \
-    useradd -r -u 1000 -g backstage backstage && \
+RUN groupadd -g 1001 backstage && \
+    useradd -r -u 1001 -g backstage backstage && \
     chown -R backstage:backstage /app
+
 
 
 USER backstage
