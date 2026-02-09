@@ -26,7 +26,8 @@ spec:
         path: k8s
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{repository}}'
+        namespace: backstage
+
       syncPolicy:
         automated:
           prune: true
