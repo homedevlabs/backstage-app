@@ -21,7 +21,7 @@ spec:
       serviceAccountName: backstage
       containers:
       - name: backstage
-        image: ghcr.io/homedevlabs/backstage-app:sha-f68a39930fee0b0dddd95b258ef545fc4911e71e
+        image: ghcr.io/homedevlabs/backstage-app:sha-4f8f1ef08826498c88f55cd9559e787666ae5db4
         imagePullPolicy: Always
         ports:
         - name: http
