@@ -1,4 +1,5 @@
-# Trigger redeploy - Sync check
+# Trigger redeploy - Native structure final sync
+
 apiVersion: argoproj.io/v1alpha1
 
 kind: Application
