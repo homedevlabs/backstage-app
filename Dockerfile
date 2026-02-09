@@ -42,12 +42,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 
 # Copy and extract built backend
+COPY --from=build /app/package.json /app/yarn.lock /app/.yarnrc.yml ./
+COPY --from=build /app/.yarn ./.yarn
 COPY --from=build /app/packages/backend/dist/skeleton.tar.gz /app/packages/backend/dist/bundle.tar.gz ./
 RUN tar xzf skeleton.tar.gz && tar xzf bundle.tar.gz && rm skeleton.tar.gz bundle.tar.gz
 
 # Install production dependencies
 RUN corepack enable && \
-    yarn workspaces focus --production
+    yarn workspaces focus backend --production
 
 # Copy app config
 COPY --from=build /app/app-config.yaml /app/app-config.yaml
