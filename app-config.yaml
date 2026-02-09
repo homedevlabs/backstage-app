@@ -87,9 +87,9 @@ catalog:
   rules:
     - allow: [Component, System, API, Resource, Location, User, Group]
   providers:
-    github:
-      development:
-        organization: homedevlabs
+    githubOrg:
+      default:
+        orgs: [ homedevlabs ]
         schedule:
           frequency: { minutes: 30 }
           timeout: { minutes: 3 }

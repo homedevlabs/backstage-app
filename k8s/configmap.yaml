@@ -60,15 +60,9 @@ data:
       rules:
         - allow: [Component, System, API, Resource, Location, User, Group]
       providers:
-        github:
-          production:
-            organization: homedevlabs
-            schedule:
-              frequency: { minutes: 30 }
-              timeout: { minutes: 3 }
-              initialDelay: { seconds: 15 }
-          development:
-            organization: homedevlabs
+        githubOrg:
+          default:
+            orgs: [ homedevlabs ]
             schedule:
               frequency: { minutes: 30 }
               timeout: { minutes: 3 }
