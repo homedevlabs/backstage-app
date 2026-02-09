@@ -129,6 +129,7 @@ kubectl apply -f k8s/
 - [x] Criar repositório no GitHub (homedevlabs/backstage-app) <!-- id: 8 -->
 - [x] Push para GitHub <!-- id: 9 -->
 - [x] Pipeline CI/CD configurado <!-- id: 11 -->
+- [x] Automação total via ApplicationSet ativa 🤖
 
 ## 🔧 Configuração
 
