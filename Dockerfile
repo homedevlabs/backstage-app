@@ -41,13 +41,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 
-# Copy built backend
-COPY --from=build /app/packages/backend/dist /app/packages/backend/dist
-COPY --from=build /app/node_modules /app/node_modules
-COPY --from=build /app/package.json /app/package.json
-COPY --from=build /app/yarn.lock /app/yarn.lock
+# Copy and extract built backend
+COPY --from=build /app/packages/backend/dist/skeleton.tar.gz /app/packages/backend/dist/bundle.tar.gz ./
+RUN tar xzf skeleton.tar.gz && tar xzf bundle.tar.gz && rm skeleton.tar.gz bundle.tar.gz
 
-# Copy app config (will be overridden by ConfigMap in K8s)
+# Install production dependencies
+RUN corepack enable && \
+    yarn install --immutable --production --production-only
+
+# Copy app config
 COPY --from=build /app/app-config.yaml /app/app-config.yaml
 
 
@@ -61,7 +63,6 @@ RUN groupadd -g 1001 backstage && \
 USER backstage
 
 EXPOSE 7007
-# Trigger CI/CD - Fix manifest path validation
 
 CMD ["node", "packages/backend", "--config", "app-config.yaml"]
 
