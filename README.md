@@ -126,7 +126,7 @@ O pipeline será composto por dois estágios principais:
 
 ### 3. ArgoCD Configuration
 
-No arquivo [application.yaml](file:///home/machine/repository/backstage-app/argocd/application.yaml), o repositório está configurado para:
+No arquivo [argocd-application.yaml](file:///home/machine/repository/backstage-app/k8s/argocd-application.yaml), o repositório está configurado para:
 `https://github.com/homedevlabs/backstage-app.git`
 
 - [x] Fazer commit inicial <!-- id: 7 -->
