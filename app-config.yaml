@@ -85,7 +85,15 @@ catalog:
     entityFilename: catalog-info.yaml
     pullRequestBranchName: backstage-integration
   rules:
-    - allow: [Component, System, API, Resource, Location]
+    - allow: [Component, System, API, Resource, Location, User, Group]
+  providers:
+    github:
+      development:
+        organization: homedevlabs
+        schedule:
+          frequency: { minutes: 30 }
+          timeout: { minutes: 3 }
+          initialDelay: { seconds: 15 }
   locations:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: file
