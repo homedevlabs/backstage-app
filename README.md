@@ -25,7 +25,8 @@ yarn install
 yarn start
 ```
 
-Acesse: http://localhost:3000
+Acesse: https://backstage.superlab.app
+
 
 ### Build Docker Image
 
@@ -98,7 +99,7 @@ argocd app get backstage
 │   │   ├── external-secrets.yaml
 │   │   ├── deployment.yaml
 │   │   ├── service.yaml
-│   │   └── kustomization.yaml
+│   │   └── ingress.yaml
 │   └── overlays/
 │       └── production/
 ├── argocd/
@@ -107,7 +108,12 @@ argocd app get backstage
 │   ├── app/          # Frontend
 │   └── backend/      # Backend
 └── Dockerfile
-```
+```#### [ingress.yaml](file:///home/machine/repository/backstage-app/k8s/base/ingress.yaml)
+- Ingress configurado para Traefik com suporte a TLS e entrypoint `websecure`.
+
+---
+
+### 3. ArgoCD Configuration
 
 ## 🔧 Configuração
 
