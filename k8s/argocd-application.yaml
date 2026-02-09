@@ -12,7 +12,8 @@ spec:
   source:
     repoURL: https://github.com/homedevlabs/backstage-app.git
     targetRevision: main
-    path: k8s/base
+    path: k8s
+
 
   
   destination:
