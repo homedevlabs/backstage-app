@@ -35,12 +35,12 @@ backend:
 integrations:
   github:
     - host: github.com
-      # This is a Personal Access Token or PAT from GitHub. You can find out how to generate this token, and more information
-      # about setting up the GitHub integration here: https://backstage.io/docs/integrations/github/locations#configuration
-      token: ${GITHUB_TOKEN}
-      # Temporarily commented out GitHub App integration - webhookSecret configuration issue
-      # apps:
-      #   - $include: github-app-backstage-credentials.yaml
+      apps:
+        - appId: ${GITHUB_APP_ID}
+          privateKey: |
+            ${GITHUB_APP_PRIVATE_KEY}
+          clientId: ${AUTH_GITHUB_CLIENT_ID}
+          clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
     #   apiBaseUrl: https://ghe.example.net/api/v3
