@@ -38,7 +38,6 @@ import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/
 import { NotificationsPage } from '@backstage/plugin-notifications';
 import { SignalsDisplay } from '@backstage/plugin-signals';
 import { githubAuthApiRef } from '@backstage/core-plugin-api';
-
 const app = createApp({
   apis,
   bindRoutes({ bind }) {
@@ -63,15 +62,12 @@ const app = createApp({
       <SignInPage
         {...props}
         auto
-        providers={[
-          'guest',
-          {
-            id: 'github-auth-provider',
-            title: 'GitHub',
-            message: 'Sign in using GitHub',
-            apiRef: githubAuthApiRef,
-          },
-        ]}
+        provider={{
+          id: 'github-auth-provider',
+          title: 'GitHub',
+          message: 'Sign in using GitHub',
+          apiRef: githubAuthApiRef,
+        }}
       />
     ),
   },
