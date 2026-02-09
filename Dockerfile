@@ -61,7 +61,7 @@ RUN groupadd -g 1001 backstage && \
 USER backstage
 
 EXPOSE 7007
-#ok
+# Trigger CI/CD - Fix manifest path validation
 
 CMD ["node", "packages/backend", "--config", "app-config.yaml"]
 
