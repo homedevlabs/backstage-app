@@ -49,7 +49,7 @@ COPY --from=build /app/yarn.lock /app/yarn.lock
 
 # Copy app config (will be overridden by ConfigMap in K8s)
 COPY --from=build /app/app-config.yaml /app/app-config.yaml
-COPY --from=build /app/app-config.production.yaml /app/app-config.production.yaml
+
 
 # Create non-root user
 RUN groupadd -g 1000 backstage && \
@@ -61,4 +61,5 @@ USER backstage
 
 EXPOSE 7007
 
-CMD ["node", "packages/backend", "--config", "app-config.yaml", "--config", "app-config.production.yaml"]
+CMD ["node", "packages/backend", "--config", "app-config.yaml"]
+
