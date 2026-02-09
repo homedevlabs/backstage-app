@@ -67,6 +67,12 @@ data:
               frequency: { minutes: 30 }
               timeout: { minutes: 3 }
               initialDelay: { seconds: 15 }
+          development:
+            organization: homedevlabs
+            schedule:
+              frequency: { minutes: 30 }
+              timeout: { minutes: 3 }
+              initialDelay: { seconds: 15 }
       locations:
         - type: url
           target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml

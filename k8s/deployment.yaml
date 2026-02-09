@@ -27,6 +27,9 @@ spec:
         - name: http
           containerPort: 7007
           protocol: TCP
+        env:
+        - name: NODE_ENV
+          value: production
         envFrom:
         - secretRef:
             name: backstage-secrets
