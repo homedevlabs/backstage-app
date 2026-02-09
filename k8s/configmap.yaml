@@ -61,7 +61,7 @@ data:
         - allow: [Component, System, API, Resource, Location, User, Group]
       providers:
         githubOrg:
-          default:
+          production:
             orgs: [ homedevlabs ]
             schedule:
               frequency: { minutes: 30 }
