@@ -1,5 +1,6 @@
 # Stage 1: Build
-FROM node:22-alpine AS build
+FROM node:22-bookworm-slim AS build
+
 
 WORKDIR /app
 
@@ -19,16 +20,17 @@ RUN yarn tsc && \
     yarn build:backend --config ../../app-config.yaml
 
 # Stage 2: Production
-FROM node:22-alpine
+FROM node:22-bookworm-slim
 
 WORKDIR /app
 
 # Install runtime dependencies
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     g++ \
     make \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/lib/apt/lists/*
+
 
 # Copy built backend
 COPY --from=build /app/packages/backend/dist /app/packages/backend/dist
