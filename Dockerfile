@@ -47,7 +47,7 @@ RUN tar xzf skeleton.tar.gz && tar xzf bundle.tar.gz && rm skeleton.tar.gz bundl
 
 # Install production dependencies
 RUN corepack enable && \
-    yarn install --immutable --production --production-only
+    yarn workspaces focus --production
 
 # Copy app config
 COPY --from=build /app/app-config.yaml /app/app-config.yaml
