@@ -138,7 +138,8 @@ No arquivo [application.yaml](file:///home/machine/repository/backstage-app/argo
 
 A configuração é gerenciada através de:
 - `app-config.yaml` - Configuração base
-- `app-config.production.yaml` - Overrides de produção
+- `app-config.yaml` - Configuração principal
+
 - Environment variables (do Vault via ExternalSecrets)
 
 ## 📝 License
