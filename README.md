@@ -108,7 +108,16 @@ argocd app get backstage
 │   ├── app/          # Frontend
 │   └── backend/      # Backend
 └── Dockerfile
-```
+### Git Repository
+
+#### [.github/workflows/ci.yaml](file:///home/machine/repository/backstage-app/.github/workflows/ci.yaml)
+Pipeline de CI/CD para build, push da imagem Docker e atualização do manifesto de deployment no Kubernetes.
+
+## Pipeline CI/CD (GitHub Actions)
+
+O pipeline será composto por dois estágios principais:
+1. **Build & Push**: Constrói a imagem Docker e envia para o GitHub Container Registry (GHCR).
+2. **Update Image**: Atualiza o arquivo `k8s/base/deployment.yaml` com a nova tag da imagem, permitindo que o ArgoCD detecte a mudança e realize o sync automático.
 
 #### [ingress.yaml](file:///home/machine/repository/backstage-app/k8s/base/ingress.yaml)
 - Ingress configurado para Traefik com suporte a TLS e entrypoint `websecure`.
@@ -119,6 +128,11 @@ argocd app get backstage
 
 No arquivo [application.yaml](file:///home/machine/repository/backstage-app/argocd/application.yaml), o repositório está configurado para:
 `https://github.com/homedevlabs/backstage-app.git`
+
+- [x] Fazer commit inicial <!-- id: 7 -->
+- [x] Criar repositório no GitHub (homedevlabs/backstage-app) <!-- id: 8 -->
+- [x] Push para GitHub <!-- id: 9 -->
+- [/] Criar pipeline CI/CD (GitHub Actions) <!-- id: 11 -->
 
 ## 🔧 Configuração
 
