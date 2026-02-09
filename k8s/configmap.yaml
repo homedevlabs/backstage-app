@@ -20,7 +20,7 @@ data:
       csp:
         connect-src: ["'self'", 'http:', 'https:']
       cors:
-        origin: http://localhost:3000
+        origin: https://backstage.superlab.app
         methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
         credentials: true
       database:
@@ -59,7 +59,15 @@ data:
         entityFilename: catalog-info.yaml
         pullRequestBranchName: backstage-integration
       rules:
-        - allow: [Component, System, API, Resource, Location]
+        - allow: [Component, System, API, Resource, Location, User, Group]
+      providers:
+        github:
+          production:
+            organization: homedevlabs
+            schedule:
+              frequency: { minutes: 30 }
+              timeout: { minutes: 3 }
+              initialDelay: { seconds: 15 }
       locations:
         - type: url
           target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
