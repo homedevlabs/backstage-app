@@ -100,10 +100,7 @@ argocd app get backstage
 │   │   ├── deployment.yaml
 │   │   ├── service.yaml
 │   │   └── ingress.yaml
-│   └── overlays/
-│       └── production/
-├── argocd/
-│   └── application.yaml
+│   └── argocd-application.yaml
 ├── packages/
 │   ├── app/          # Frontend
 │   └── backend/      # Backend
