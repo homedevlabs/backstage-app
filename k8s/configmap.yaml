@@ -43,16 +43,6 @@ data:
         message ExampleMessage {
           string example = 1;
         };
-    ---
-    apiVersion: backstage.io/v1alpha1
-    kind: User
-    metadata:
-      name: neto007
-    spec:
-      profile:
-        displayName: Neto
-        picture: https://github.com/neto007.png
-      memberOf: [guest]
   app-config.yaml: |
     app:
       title: Backstage
@@ -110,7 +100,7 @@ data:
         - allow: [Component, System, API, Resource, Location, User, Group]
       providers:
         githubOrg:
-          production:
+          default:
             orgs: [ homedevlabs ]
             schedule:
               frequency: { minutes: 30 }
