@@ -69,6 +69,8 @@ data:
               initialDelay: { seconds: 15 }
       locations:
         - type: url
+          target: https://github.com/homedevlabs/backstage-app/blob/main/examples/entities.yaml
+        - type: url
           target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
 
     techdocs:
