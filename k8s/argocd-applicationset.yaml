@@ -8,7 +8,7 @@ spec:
   - scmProvider:
       github:
         organization: homedevlabs
-        api: https://api.github.com/
+        api: https://api.github.com
         # Usando o Secret de credenciais do GitHub App que já configuramos
         appSecretName: github-app-repo-creds
       filters:
@@ -20,8 +20,9 @@ spec:
     spec:
       project: default
       source:
-        repoURL: '{{url}}'
+        repoURL: 'https://github.com/homedevlabs/{{repository}}.git'
         targetRevision: '{{branch}}'
+
         path: k8s
       destination:
         server: https://kubernetes.default.svc
