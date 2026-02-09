@@ -107,6 +107,12 @@ catalog:
     # - type: url
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
 
+    ## GitHub Org Data Provider
+    - type: url
+      target: https://github.com/homedevlabs
+      rules:
+        - allow: [User, Group]
+
     ## Uncomment these lines to add an example org
     # - type: url
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
