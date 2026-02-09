@@ -38,10 +38,6 @@ spec:
           mountPath: /app/app-config.yaml
           subPath: app-config.yaml
           readOnly: true
-        - name: app-config
-          mountPath: /app/entities.yaml
-          subPath: entities.yaml
-          readOnly: true
         livenessProbe:
           httpGet:
             path: /healthcheck

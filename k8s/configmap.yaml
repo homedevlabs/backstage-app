@@ -4,45 +4,6 @@ metadata:
   name: backstage-app-config
   namespace: backstage
 data:
-  entities.yaml: |
-    ---
-    apiVersion: backstage.io/v1alpha1
-    kind: System
-    metadata:
-      name: examples
-    spec:
-      owner: guests
-    ---
-    apiVersion: backstage.io/v1alpha1
-    kind: Component
-    metadata:
-      name: example-website
-    spec:
-      type: website
-      lifecycle: experimental
-      owner: guests
-      system: examples
-      providesApis: [example-grpc-api]
-    ---
-    apiVersion: backstage.io/v1alpha1
-    kind: API
-    metadata:
-      name: example-grpc-api
-    spec:
-      type: grpc
-      lifecycle: experimental
-      owner: guests
-      system: examples
-      definition: |
-        syntax = "proto3";
-
-        service Exampler {
-          rpc Example (ExampleMessage) returns (ExampleMessage) {};
-        }
-
-        message ExampleMessage {
-          string example = 1;
-        };
   app-config.yaml: |
     app:
       title: Backstage
@@ -107,10 +68,8 @@ data:
               timeout: { minutes: 3 }
               initialDelay: { seconds: 15 }
       locations:
-        - type: file
-          target: /app/entities.yaml
         - type: url
-          target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+          target: https://github.com/homedevlabs/backstage-app/blob/main/catalog-info.yaml
 
     techdocs:
       builder: 'local'
