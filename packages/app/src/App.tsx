@@ -43,6 +43,8 @@ import { ptBrTranslations } from './translations';
 const app = createApp({
   apis,
   __experimentalTranslations: {
+    defaultLanguage: 'pt-BR',
+    availableLanguages: ['pt-BR', 'en'],
     resources: ptBrTranslations,
   },
   bindRoutes({ bind }) {
