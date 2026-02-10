@@ -1,0 +1,26 @@
+app:
+  baseUrl: http://localhost:3000
+backend:
+  baseUrl: http://localhost:7007
+  listen:
+    port: 7007
+  cors:
+    origin: http://localhost:3000
+integrations:
+  github:
+    - host: github.com
+      apps:
+        - appId: ${GITHUB_APP_ID}
+          privateKey: |
+            ${GITHUB_APP_PRIVATE_KEY}
+          clientId: ${AUTH_GITHUB_CLIENT_ID}
+          clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
+catalog:
+  providers:
+    githubOrg:
+      development:
+        orgs: [ homedevlabs ]
+        schedule:
+          frequency: { minutes: 30 }
+          timeout: { minutes: 3 }
+          initialDelay: { seconds: 15 }
