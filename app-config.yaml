@@ -17,10 +17,10 @@ backend:
     port: 7007
   # Uncomment the following host directive to bind to specific interfaces
   # host: 127.0.0.1
-    csp:
-      connect-src: ["'self'", 'http:', 'https:']
-      img-src: ["'self'", 'data:', 'https://avatars.githubusercontent.com']
-      script-src: ["'self'", "'unsafe-eval'", "'unsafe-inline'", 'https://static.cloudflareinsights.com']
+  csp:
+    connect-src: ["'self'", 'http:', 'https:']
+    img-src: ["'self'", 'data:', 'https://avatars.githubusercontent.com']
+    script-src: ["'self'", "'unsafe-eval'", "'unsafe-inline'", 'https://static.cloudflareinsights.com']
   # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
   # Default Helmet Content-Security-Policy values can be removed by setting the key to false
   cors:

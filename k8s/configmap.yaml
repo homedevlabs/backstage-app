@@ -19,6 +19,8 @@ data:
         port: 7007
       csp:
         connect-src: ["'self'", 'http:', 'https:']
+        img-src: ["'self'", 'data:', 'https://avatars.githubusercontent.com']
+        script-src: ["'self'", "'unsafe-eval'", "'unsafe-inline'", 'https://static.cloudflareinsights.com']
       cors:
         origin: https://backstage.superlab.app
         methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
