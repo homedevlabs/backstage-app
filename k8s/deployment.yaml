@@ -42,14 +42,14 @@ spec:
           readOnly: true
         livenessProbe:
           httpGet:
-            path: /api/health
+            path: /.backstage/health/v1/readiness
             port: 7007
           initialDelaySeconds: 60
           periodSeconds: 10
           timeoutSeconds: 3
         readinessProbe:
           httpGet:
-            path: /api/health
+            path: /.backstage/health/v1/readiness
             port: 7007
           initialDelaySeconds: 30
           periodSeconds: 10
