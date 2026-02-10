@@ -19,9 +19,14 @@ import {
 } from '@backstage/plugin-techdocs';
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
-import { UserSettingsPage } from '@backstage/plugin-user-settings';
-import { apis } from './apis';
-import { entityPage } from './components/catalog/EntityPage';
+import {
+  UserSettingsPage,
+  SettingsLayout,
+  UserSettingsGeneral,
+  UserSettingsAuthProviders,
+  UserSettingsFeatureFlags,
+} from '@backstage/plugin-user-settings';
+import { entityPage, EntityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { Root } from './components/Root';
 
@@ -43,8 +48,8 @@ import { ptBrTranslations } from './translations';
 const app = createApp({
   apis,
   __experimentalTranslations: {
-    defaultLanguage: 'pt-BR',
-    availableLanguages: ['pt-BR', 'en'],
+    defaultLanguage: 'pt',
+    availableLanguages: ['pt', 'pt-BR', 'en'],
     resources: ptBrTranslations,
   },
   bindRoutes({ bind }) {
@@ -112,7 +117,17 @@ const routes = (
     <Route path="/search" element={<SearchPage />}>
       {searchPage}
     </Route>
-    <Route path="/settings" element={<UserSettingsPage />} />
+    <Route path="/settings" element={<UserSettingsPage />}>
+      <SettingsLayout.Route path="/general" title="General">
+        <UserSettingsGeneral />
+      </SettingsLayout.Route>
+      <SettingsLayout.Route path="/auth-providers" title="Authentication Providers">
+        <UserSettingsAuthProviders />
+      </SettingsLayout.Route>
+      <SettingsLayout.Route path="/feature-flags" title="Feature Flags">
+        <UserSettingsFeatureFlags />
+      </SettingsLayout.Route>
+    </Route>
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
     <Route path="/notifications" element={<NotificationsPage />} />
   </FlatRoutes>

@@ -9,31 +9,36 @@ export const ptBrTranslations = [
     createTranslationResource({
         ref: catalogTranslationRef,
         translations: {
-            'pt-BR': () => import('./translations/catalog-pt.ts'),
+            'pt': () => import('./translations/catalog-pt'),
+            'pt-BR': () => import('./translations/catalog-pt'),
         },
     }),
     createTranslationResource({
         ref: scaffolderTranslationRef,
         translations: {
-            'pt-BR': () => import('./translations/scaffolder-pt.ts'),
+            'pt': () => import('./translations/scaffolder-pt'),
+            'pt-BR': () => import('./translations/scaffolder-pt'),
         },
     }),
     createTranslationResource({
         ref: userSettingsTranslationRef,
         translations: {
-            'pt-BR': () => import('./translations/user-settings-pt.ts'),
+            'pt': () => import('./translations/user-settings-pt'),
+            'pt-BR': () => import('./translations/user-settings-pt'),
         },
     }),
     createTranslationResource({
         ref: orgTranslationRef,
         translations: {
-            'pt-BR': () => import('./translations/org-pt.ts'),
+            'pt': () => import('./translations/org-pt'),
+            'pt-BR': () => import('./translations/org-pt'),
         },
     }),
     createTranslationResource({
         ref: searchTranslationRef,
         translations: {
-            'pt-BR': () => import('./translations/search-pt.ts'),
+            'pt': () => import('./translations/search-pt'),
+            'pt-BR': () => import('./translations/search-pt'),
         },
     }),
 ];
