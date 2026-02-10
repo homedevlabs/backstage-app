@@ -26,9 +26,10 @@ import {
   UserSettingsAuthProviders,
   UserSettingsFeatureFlags,
 } from '@backstage/plugin-user-settings';
-import { entityPage, EntityPage } from './components/catalog/EntityPage';
+import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { Root } from './components/Root';
+import { apis } from './apis';
 
 import {
   AlertDisplay,
