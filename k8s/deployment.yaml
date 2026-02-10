@@ -30,6 +30,8 @@ spec:
         env:
         - name: NODE_ENV
           value: production
+        - name: NODE_OPTIONS
+          value: --no-node-snapshot
         envFrom:
         - secretRef:
             name: backstage-secrets
