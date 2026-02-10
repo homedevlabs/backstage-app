@@ -1,0 +1,92 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: traefik-example-template
+  title: Traefik App Template
+  description: Um template de exemplo para criar aplicações com Ingress Traefik no domínio superlab.app
+spec:
+  owner: user:guest
+  type: service
+
+  parameters:
+    - title: Detalhes do Componente
+      required:
+        - name
+        - owner
+      properties:
+        name:
+          title: Nome
+          type: string
+          description: Nome único do componente
+          ui:autofocus: true
+        description:
+          title: Descrição
+          type: string
+          description: Uma breve descrição do componente
+        owner:
+          title: Proprietário
+          type: string
+          description: O proprietário do componente (ex: user:guest ou group:default/administrators)
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+              - User
+
+    - title: Configuração de Domínio
+      required:
+        - subdomain
+      properties:
+        subdomain:
+          title: Subdomínio
+          type: string
+          description: O subdomínio que será usado (ex: exemplo -> exemplo.superlab.app)
+          default: exemplo
+
+    - title: Escolha um local
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Local do Repositório
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+
+  steps:
+    - id: fetch-base
+      name: Preparando Skeleton
+      action: fetch:template
+      input:
+        url: ./skeleton
+        values:
+          name: ${{ parameters.name }}
+          description: ${{ parameters.description }}
+          owner: ${{ parameters.owner }}
+          subdomain: ${{ parameters.subdomain }}
+          repoUrl: ${{ parameters.repoUrl }}
+
+    - id: publish
+      name: Publicando no GitHub
+      action: publish:github
+      input:
+        description: Application created from Traefik Example Template
+        repoUrl: ${{ parameters.repoUrl }}
+        defaultBranch: 'main'
+
+    - id: register
+      name: Registrando no Catálogo
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
+        catalogInfoPath: '/catalog-info.yaml'
+
+  output:
+    links:
+      - title: Repositório
+        url: ${{ steps['publish'].output.remoteUrl }}
+      - title: Abrir no Catálogo
+        icon: catalog
+        entityRef: ${{ steps['register'].output.entityRef }}
