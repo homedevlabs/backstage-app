@@ -99,7 +99,7 @@ catalog:
     - type: url
       target: https://github.com/homedevlabs/backstage-app/blob/main/catalog-info.yaml
     - type: url
-      target: https://github.com/homedevlabs/templates/blob/main/template.yaml
+      target: https://github.com/homedevlabs/templates/blob/main/all.yaml
 
 kubernetes:
   # see https://backstage.io/docs/features/kubernetes/configuration for kubernetes configuration options
